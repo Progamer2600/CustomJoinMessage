@@ -21,5 +21,3 @@ install:
 script:
     - cd /home/travis/build/Krazium/CustomJoinMessage/lib/
     - java -jar BuildTools.jar --rev 1.12 > /dev/null
-    - cd -
-    - mvn compile test
