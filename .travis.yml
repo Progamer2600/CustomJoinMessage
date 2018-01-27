@@ -35,7 +35,7 @@ before_deploy:
 deploy:
   provider: releases
   api_key: $TAGPERM
-  file: "target/JoinMessage.jar"
+  file: target/JoinMessage.jar
   skip_cleanup: true
   on:
     tags: false
