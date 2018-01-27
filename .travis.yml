@@ -18,8 +18,6 @@ install:
     - cd /home/travis/build/Krazium/plugin-custom-join-message/
     - mkdir lib
     - wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastStableBuild/artifact/target/BuildTools.jar -P /home/travis/build/Krazium/plugin-custom-join-message/lib/
-before_script:
-  - sudo /etc/init.d/mysql stop
 script:
     - cd /home/travis/build/Krazium/plugin-custom-join-message/lib/
     - java -jar BuildTools.jar --rev 1.8 > /dev/null
