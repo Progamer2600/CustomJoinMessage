@@ -1,0 +1,31 @@
+
+language: java
+branches:
+  only:
+  - master
+jdk:
+  - oraclejdk8
+after_success:
+  - wget https://raw.githubusercontent.com/k3rn31p4nic/travis-ci-discord-webhook/master/send.sh
+  - chmod +x send.sh
+  - ./send.sh success $WEBHOOK_URL
+after_failure:
+  - wget https://raw.githubusercontent.com/k3rn31p4nic/travis-ci-discord-webhook/master/send.sh
+  - chmod +x send.sh
+  - ./send.sh failure $WEBHOOK_URL
+before_deploy:
+  - git config --global user.email "builds@travis-ci.com"
+  - git config --global user.name "Travis CI"
+  - export GIT_TAG=Build-$TRAVIS_BUILD_NUMBER
+  - echo $GIT_TAG
+  - git tag $GIT_TAG -a -m "JoinMessage automated build $TRAVIS_BUILD_NUMBER"
+  - git push -q https://$TAGPERM@github.com/Krazium/plugin-join-message --tags
+  - ls -R
+deploy:
+  provider: releases
+  api_key: $TAGPERM
+  file: "target/JoinMessage.jar"
+  skip_cleanup: true
+  on:
+    tags: false
+    branch: master
