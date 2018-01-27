@@ -17,7 +17,7 @@ after_failure:
 install:
     - cd /home/travis/build/Krazium/CustomJoinMessage/
     - mkdir lib
-    - wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastStableBuild/artifact/target/BuildTools.jar -P /home/travis/build/Krazium/plugin-custom-join-message/lib/
+    - wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastStableBuild/artifact/target/BuildTools.jar -P /home/travis/build/Krazium/CustomJoinMessage/lib/
 script:
     - cd /home/travis/build/Krazium/CustomJoinMessage/lib/
     - java -jar BuildTools.jar --rev 1.12 > /dev/null
