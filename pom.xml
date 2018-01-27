@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.krazium</groupId>
-    <artifactId>plugin-custom-join-message</artifactId>
+    <artifactId>customjoinmessage</artifactId>
     <name>CustomJoinMessage</name>
     <description>Simple plugin to create a custom join message for your server</description>
     <packaging>jar</packaging>
@@ -139,9 +139,9 @@
     </dependencies>
 
     <scm>
-        <connection>scm:git:git://github.com/Krazium/plugin-custom-join-message.git</connection>
-        <developerConnection>scm:git:ssh://github.com:Krazium/plugin-custom-join-message.git</developerConnection>
-        <url>http://github.com/Krazium/plugin-custom-join-message.git/tree/master</url>
+        <connection>scm:git:git://github.com/Krazium/CustomJoinMessage.git</connection>
+        <developerConnection>scm:git:ssh://github.com:Krazium/CustomJoinMessage.git</developerConnection>
+        <url>http://github.com/Krazium/CustomJoinMessage.git/tree/master</url>
     </scm>
 
     <distributionManagement>
