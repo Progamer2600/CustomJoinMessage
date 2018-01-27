@@ -1,4 +1,4 @@
-package com.krazium.joinmessage;
+package com.github.krazium.joinmessage;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;

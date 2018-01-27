@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.krazium</groupId>
+    <groupId>com.github.krazium</groupId>
     <artifactId>customjoinmessage</artifactId>
     <name>CustomJoinMessage</name>
     <description>Simple plugin to create a custom join message for your server</description>
