@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_plugin-custom-join-message" default="compile.module.plugin-custom-join-message">
+  <dirname property="module.plugin-custom-join-message.basedir" file="${ant.file.module_plugin-custom-join-message}"/>
+  
+  <property name="module.jdk.home.plugin-custom-join-message" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.plugin-custom-join-message" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.plugin-custom-join-message" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.plugin-custom-join-message" value="-encoding UTF-8 -source 9 -target 9 ${compiler.args}"/>
+  
+  <property name="plugin-custom-join-message.output.dir" value="undefined"/>
+  <property name="plugin-custom-join-message.testoutput.dir" value="undefined"/>
+  
+  <path id="plugin-custom-join-message.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="plugin-custom-join-message.module.production.classpath">
+    <path refid="${module.jdk.classpath.plugin-custom-join-message}"/>
+  </path>
+  
+  <path id="plugin-custom-join-message.runtime.production.module.classpath"/>
+  
+  <path id="plugin-custom-join-message.module.classpath">
+    <path refid="${module.jdk.classpath.plugin-custom-join-message}"/>
+  </path>
+  
+  <path id="plugin-custom-join-message.runtime.module.classpath"/>
+  
+  
+  <patternset id="excluded.from.module.plugin-custom-join-message">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.plugin-custom-join-message">
+    <patternset refid="excluded.from.module.plugin-custom-join-message"/>
+  </patternset>
+  
+  
+  <target name="compile.module.plugin-custom-join-message" depends="compile.module.plugin-custom-join-message.production,compile.module.plugin-custom-join-message.tests" description="Compile module plugin-custom-join-message"/>
+  
+  <target name="compile.module.plugin-custom-join-message.production" depends="register.custom.compilers" description="Compile module plugin-custom-join-message; production classes"/>
+  
+  <target name="compile.module.plugin-custom-join-message.tests" depends="register.custom.compilers,compile.module.plugin-custom-join-message.production" description="compile module plugin-custom-join-message; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.plugin-custom-join-message" description="cleanup module">
+    <delete dir="${plugin-custom-join-message.output.dir}"/>
+    <delete dir="${plugin-custom-join-message.testoutput.dir}"/>
+  </target>
+</project>
