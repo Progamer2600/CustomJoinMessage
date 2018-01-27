@@ -1,5 +1,6 @@
 
 language: java
+sudo: true
 branches:
   only:
   - master
@@ -13,19 +14,21 @@ after_failure:
   - wget https://raw.githubusercontent.com/k3rn31p4nic/travis-ci-discord-webhook/master/send.sh
   - chmod +x send.sh
   - ./send.sh failure $WEBHOOK_URL
-before_deploy:
-  - git config --global user.email "builds@travis-ci.com"
-  - git config --global user.name "Travis CI"
-  - export GIT_TAG=Build-$TRAVIS_BUILD_NUMBER
-  - echo $GIT_TAG
-  - git tag $GIT_TAG -a -m "JoinMessage automated build $TRAVIS_BUILD_NUMBER"
-  - git push -q https://$TAGPERM@github.com/Krazium/plugin-join-message --tags
-  - ls -R
-deploy:
-  provider: releases
-  api_key: $TAGPERM
-  file: "target/JoinMessage.jar"
-  skip_cleanup: true
-  on:
-    tags: false
-    branch: master
+install:
+    - cd /home/travis/build/Krazium/plugin-custom-join-message/
+    - mkdir lib
+    - wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastStableBuild/artifact/target/BuildTools.jar -P /home/travis/build/Krazium/plugin-custom-join-message/lib/
+before_script:
+  - sudo /etc/init.d/mysql stop
+script:
+    - cd /home/travis/build/Krazium/plugin-custom-join-message/lib/
+    - java -jar BuildTools.jar --rev 1.8 > /dev/null
+    - java -jar BuildTools.jar --rev 1.8.3 > /dev/null
+    - java -jar BuildTools.jar --rev 1.8.8 > /dev/null
+    - java -jar BuildTools.jar --rev 1.9 > /dev/null
+    - java -jar BuildTools.jar --rev 1.9.4 > /dev/null
+    - java -jar BuildTools.jar --rev 1.10 > /dev/null
+    - java -jar BuildTools.jar --rev 1.11 > /dev/null
+    - java -jar BuildTools.jar --rev 1.12 > /dev/null
+    - cd -
+    - mvn compile test
