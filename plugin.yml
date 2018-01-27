@@ -1,0 +1,5 @@
+name: CustomJoinMessage
+author: Progamer260
+description: Allows customizable join messages from a config file
+main: me.progamer260.customjoinmessage.Main
+version: 1.0
