@@ -25,7 +25,6 @@ public class Main extends JavaPlugin implements Listener {
 
 	@EventHandler
 	public void onJoin(PlayerJoinEvent event) {
-		System.out.println("WORKS");
 		String message = getConfig().getString("Message");
 		String playerMessage = ChatColor.translateAlternateColorCodes('&',
 				message.replace("%player%", event.getPlayer().getName()));
