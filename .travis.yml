@@ -22,7 +22,9 @@ script:
     - cd /home/travis/build/Krazium/CustomJoinMessage/lib/
     - java -jar BuildTools.jar --rev 1.12 > /dev/null
 before_deploy:
+  - cd /home/travis/build/Krazium/CustomJoinMessage/
   - "mvn -DskipTests package"
+  - cd /home/travis/build/Krazium/CustomJoinMessage/lib/
   - git config --global user.email "builds@travis-ci.com"
   - git config --global user.name "Travis CI"
   - export GIT_TAG=Build-$TRAVIS_BUILD_NUMBER
