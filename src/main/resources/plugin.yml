@@ -1,5 +1,5 @@
 name: CustomJoinMessage
 author: Progamer260
 description: Allows customizable join messages from a config file
-main: com.krazium.joinmessage.Main
+main: com.github.krazium.joinmessage.Main
 version: 1.0
