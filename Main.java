@@ -1,4 +1,4 @@
-package me.progamer260.customjoinmessage;
+package com.krazium.customjoinmessage;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
