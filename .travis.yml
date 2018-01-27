@@ -15,11 +15,11 @@ after_failure:
   - chmod +x send.sh
   - ./send.sh failure $WEBHOOK_URL
 install:
-    - cd /home/travis/build/Krazium/plugin-custom-join-message/
+    - cd /home/travis/build/Krazium/CustomJoinMessage/
     - mkdir lib
     - wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastStableBuild/artifact/target/BuildTools.jar -P /home/travis/build/Krazium/plugin-custom-join-message/lib/
 script:
-    - cd /home/travis/build/Krazium/plugin-custom-join-message/lib/
+    - cd /home/travis/build/Krazium/CustomJoinMessage/lib/
     - java -jar BuildTools.jar --rev 1.12 > /dev/null
     - cd -
     - mvn compile test
