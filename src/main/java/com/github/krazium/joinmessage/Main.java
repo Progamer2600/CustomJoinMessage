@@ -1,7 +1,6 @@
 package com.github.krazium.joinmessage;
 
 import org.bukkit.Bukkit;
-//import org.bukkit.command.CommandSender;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -10,13 +9,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import net.md_5.bungee.api.ChatColor;
 
-public class Main extends JavaPlugin implements Listener /* , CommandExecutor */ {
-
+public class Main extends JavaPlugin implements Listener  {
 	@Override
 	public void onEnable() {
 		getServer().getPluginManager().registerEvents(this, this);
 		loadConfig();
-		// this.getCommand("setjoinmessage").setExecutor(this);
 		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "CustomJoinMessage Loaded!");
 	}
 
@@ -26,17 +23,7 @@ public class Main extends JavaPlugin implements Listener /* , CommandExecutor */
 		this.getConfig().addDefault("Leave Message", "%player% has left the game!");
 		this.saveConfig();
 	}
-//TO BE ADDED
-	/*
-	 * public boolean onCommand(Command command, CommandSender sender, String label,
-	 * String[] args) { if (command.getName().equalsIgnoreCase("setjoinmessage")) {
-	 * System.out.println("WORKS"); if (args.length >= 0) { if
-	 * (sender.hasPermission("customjoinmessage.admin")) {
-	 * sender.sendMessage(ChatColor.GREEN + "Setting Message...");
-	 * getConfig().set("Message", args); } } else { sender.sendMessage(ChatColor.RED
-	 * + "Usage: /setjoinmessage <Message>"); } } return true; }
-	 */
-
+	
 	@EventHandler
 	public void onJoin(PlayerJoinEvent event) {
 
@@ -63,7 +50,5 @@ public class Main extends JavaPlugin implements Listener /* , CommandExecutor */
 			event.setQuitMessage(ChatColor.RED + "Message must contain %player% "
 					+ "Please contact an Administrator to fix the config.yml file");
 		}
-
 	}
-
 }
